@@ -13,6 +13,10 @@
             font-family: 'EB Garamond', serif;
             overflow: hidden;
         }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
         #content {
             height: 100%;
             display: flex;
@@ -66,7 +70,7 @@
             margin: 0 auto;
         }
         #main.about h1 {
-            font-size: 8vw;
+            font-size: 6vw;
             margin-bottom: 2rem;
             font-weight: 600;
         }
@@ -123,7 +127,7 @@
             <p>
                 we should design<br>
                 things to be<br>
-                <span class="bold"><span class="italic">actually</span><br>useful.</span>
+                <span class="bold"><span class="italic">actually</span><br>useful<a href="#" onclick="togglePageAndScrollToExplanation('about')" style="text-decoration: none;">*</a>.</span>
             </p>
         </div>
         <nav id="menu">
@@ -159,12 +163,21 @@
                 // Update content based on the page
                 if (page === 'about') {
                     main.innerHTML = `
-                        <h1>What do I mean by actually useful?</h1>
-                        <p>In a world inundated with products and services, the concept of "actually useful" stands out as a beacon of purposeful design. It's about creating solutions that not only meet immediate needs but also enhance our lives in meaningful ways.</p>
-                        <p>Actually useful design goes beyond mere functionality. It anticipates user needs, simplifies complex tasks, and brings joy through its elegance and efficiency. It's the difference between a tool that gets the job done and one that makes you wonder how you ever managed without it.</p>
-                        <p>This philosophy challenges us to think deeply about the impact of our creations. Are we solving real problems? Are we making people's lives easier, more productive, or more enjoyable? Or are we simply adding to the noise?</p>
-                        <p>By focusing on being actually useful, we commit to a higher standard of design and innovation. We prioritize substance over style, though ideally, we achieve both. We create with intention, always asking ourselves: "Is this truly improving someone's life?"</p>
-                        <p>In essence, actually useful design is about respect—respect for users' time, energy, and intelligence. It's about creating value that lasts, not just capturing fleeting attention. It's a commitment to making a genuine, positive difference in the world, one thoughtful design at a time.</p>
+                        <h1>agasthya shenoy is trying to be <strong><i>actually</i> useful</strong>.</h1>
+                        <p>this is a space where I share some of the thoughts and experiments that have come out of my fellowship with Teaching Lab Ventures. I don't think enough things in education are <strong><i>actually</i> useful</strong>, and I'm trying to change that.</p>
+                        <hr>
+                        <h1 id="explanation">what do I mean by <i>actually</i> useful?</h1>
+                        <p>It might be easier to first consider the opposite case. Many ai-powered tools, in order to be actually useful to their users, require users to satisfy <strong>at least two</strong> of the following conditions:</p>
+                        <ul>
+                            <li>You know what you need [<i>'a blog post with certain style and topic'</i>]</li>
+                            <li>You know how to get what you need [<i>'a well-crafted prompt'</i>]</li>
+                            <li>You have time to engage in a potentially meandering conversation [<i>'keep giving the model feedback'</i>]</li>
+                        </ul>
+                        <p>(Think of a time you were frustrated with a chatbot. It was likely you couldn’t check at least two of those boxes.)</p>
+                        <p>I think that a tool built with these requirements cannot be <strong><i>actually</i> useful</strong>: they require too much of the user, and either get used once and forgotten, or religiously by a small subset of power users. This is because tools like these are built using AI-centric UX frameworks like <i>human-in-the-loop</i> (human as “approver”) and <i>human-on-the-loop</i> (human as “vetoer”). These frameworks are AI-centric because the primary “doer” in the loop is the AI, which finds the shortest, most efficient road from human intent to output: uploading some journal articles and having an ai writing tool write a blog post about them.</p>
+                        <p>I think <strong><i>actually</i> useful</strong> tools are built with a <strong>humans-as-the-loop</strong> framework. In this framework the primary “doer” is the human, where the AI finds <i>a fundamentally better road:</i> uploading some journal articles and the random brainstorm I had, then going on a walk and listening to a conversation by experts in the field about my ideas in the context of those articles, and <i>then</i> going to write the blog post myself, brimming with new ideas crystalizing in my head.</p>
+                        <p>Both ways get me to a blog post. The first, even if I were able to meet two of the three conditions, would end up in a piece that I would have to thoroughly edit, even with the best models out there. The second gets me thinking in different ways, helps me synthesize ideas, and ends up in a piece that is far more interesting to read and write.</p>
+                        <p>does that make it <strong><i>actually</i> useful</strong>? I think so.</p>
                     `;
                 } else if (page === 'ideas') {
                     main.innerHTML = `
@@ -182,6 +195,17 @@
             setTimeout(() => {
                 main.style.opacity = '1';
             }, 300);
+        }
+        function togglePageAndScrollToExplanation(pageName) {
+            togglePage(pageName);
+            
+            // Wait for the page transition to complete
+            setTimeout(() => {
+                const explanationElement = document.getElementById('explanation');
+                if (explanationElement) {
+                explanationElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100); // Adjust this delay if needed
         }
     </script>
 </body>
