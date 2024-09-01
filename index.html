@@ -17,6 +17,9 @@
             color: inherit;
             text-decoration: none;
         }
+        a:hover {
+            color:#ebd89e;
+        }
         #content {
             height: 100%;
             display: flex;
@@ -91,7 +94,7 @@
             font-weight: 800;
         }
         #main.ideas h2 {
-            font-size: 2vw;
+            font-size: 4vw;
             margin-bottom: 1rem;
             font-weight: 600;
         }
@@ -163,8 +166,8 @@
                 // Update content based on the page
                 if (page === 'about') {
                     main.innerHTML = `
-                        <h1>agasthya shenoy is trying to be <strong><i>actually</i> useful</strong>.</h1>
-                        <p>this is a space where I share some of the thoughts and experiments that have come out of my fellowship with Teaching Lab Ventures. I don't think enough things in education are <strong><i>actually</i> useful</strong>, and I'm trying to change that.</p>
+                        <h1><a href="http://linkedin.com/in/agasthyaps" target="_blank">agasthya shenoy</a> is trying to be <strong><i>actually</i> useful</strong>.</h1>
+                        <p>this is a space where I share some of the thoughts and experiments that have come out of my <a href="https://www.teachinglab.org/fellowship" target="_blank">fellowship with Teaching Lab Ventures</a>. I don't think enough things in education are <strong><i>actually</i> useful</strong>, and I'm trying to change that.</p>
                         <hr>
                         <h1 id="explanation">what do I mean by <i>actually</i> useful?</h1>
                         <p>It might be easier to first consider the opposite case. Many ai-powered tools, in order to be actually useful to their users, require users to satisfy <strong>at least two</strong> of the following conditions:</p>
@@ -182,6 +185,7 @@
                 } else if (page === 'ideas') {
                     main.innerHTML = `
                     <h1>the search for <strong><i>actually</i> useful</strong></h1>
+                    <p>i don't know what's <strong><i>actually</i> useful</strong>. but here are some ideas:</p>
                     <h2>could an ai-generated podcast help you synthesize ideas?</h2>
                     <p><i>maybe if you used a team of LLMs with specialized roles to research, write, and edit it?</i><a href="http://connective-issues.io" target="_blank" style="color: rgb(142, 142, 142);">Find out. →</a></p>
                     `;
