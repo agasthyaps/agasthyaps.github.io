@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>actually useful.</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'EB Garamond', serif;
+            overflow: hidden;
+        }
+        #content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        #background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+        #background::before, #background::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 100%;
+        }
+        #background::before {
+            top: 0;
+            background-color: #ebd89e;
+        }
+        #background::after {
+            top: 100%;
+            background-color: #cdf0e4;
+        }
+        #main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 5vw;
+            transition: opacity 0.3s;
+            position: relative;
+            z-index: 1;
+            overflow-y: auto;
+        }
+        #main.home p {
+            font-size: 12vw;
+            line-height: 0.9;
+            margin: 0;
+        }
+        #main.about {
+            padding: 10vw;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #main.about h1 {
+            font-size: 8vw;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        #main.about p {
+            font-size: 24px;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        #main.ideas {
+            padding: 10vw;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #main.ideas h1 {
+            font-size: 8vw;
+            color: #484848;
+            margin-bottom: 2rem;
+            font-weight: 800;
+        }
+        #main.ideas h2 {
+            font-size: 2vw;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        #main.ideas p {
+            font-size: 24px;
+            margin-bottom: 1.5rem;
+        }
+        #menu {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.01);
+            position: relative;
+            z-index: 2;
+        }
+        
+        #menu a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .bold {
+            font-weight: 600;
+        }
+        .italic {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="background"></div>
+        <div id="main" class="home">
+            <p>
+                we should design<br>
+                things to be<br>
+                <span class="bold"><span class="italic">actually</span><br>useful</span>
+            </p>
+        </div>
+        <nav id="menu">
+            <a href="#" onclick="togglePage('about')" style="font-size: 2em;">about</a>
+            <a href="#" onclick="togglePage('ideas')" style="font-size: 2em;">ideas</a>
+        </nav>
+    </div>
+
+    <script>
+        let currentPage = 'home';
+
+        function togglePage(page) {
+            const background = document.getElementById('background');
+            const main = document.getElementById('main');
+
+            if (currentPage === page) {
+                // Go back to home
+                background.style.transform = 'translateY(0)';
+                main.className = 'home';
+                main.innerHTML = `
+                    <p>
+                        we should design<br>
+                        things to be<br>
+                        <span class="bold"><span class="italic">actually</span><br>useful.</span>
+                    </p>
+                `;
+                currentPage = 'home';
+            } else {
+                // Go to selected page
+                background.style.transform = 'translateY(-100%)';
+                main.className = page;
+
+                // Update content based on the page
+                if (page === 'about') {
+                    main.innerHTML = `
+                        <h1>What do I mean by actually useful?</h1>
+                        <p>In a world inundated with products and services, the concept of "actually useful" stands out as a beacon of purposeful design. It's about creating solutions that not only meet immediate needs but also enhance our lives in meaningful ways.</p>
+                        <p>Actually useful design goes beyond mere functionality. It anticipates user needs, simplifies complex tasks, and brings joy through its elegance and efficiency. It's the difference between a tool that gets the job done and one that makes you wonder how you ever managed without it.</p>
+                        <p>This philosophy challenges us to think deeply about the impact of our creations. Are we solving real problems? Are we making people's lives easier, more productive, or more enjoyable? Or are we simply adding to the noise?</p>
+                        <p>By focusing on being actually useful, we commit to a higher standard of design and innovation. We prioritize substance over style, though ideally, we achieve both. We create with intention, always asking ourselves: "Is this truly improving someone's life?"</p>
+                        <p>In essence, actually useful design is about respect—respect for users' time, energy, and intelligence. It's about creating value that lasts, not just capturing fleeting attention. It's a commitment to making a genuine, positive difference in the world, one thoughtful design at a time.</p>
+                    `;
+                } else if (page === 'ideas') {
+                    main.innerHTML = `
+                    <h1>the search for <strong><i>actually</i> useful</strong></h1>
+                    <h2>could an ai-generated podcast help you synthesize ideas?</h2>
+                    <p><i>maybe if you used a team of LLMs with specialized roles to research, write, and edit it?</i><a href="http://connective-issues.io" target="_blank" style="color: rgb(142, 142, 142);">Find out. →</a></p>
+                    `;
+                }
+
+                currentPage = page;
+            }
+
+            // Add a small opacity transition for smoother content change
+            main.style.opacity = '0';
+            setTimeout(() => {
+                main.style.opacity = '1';
+            }, 300);
+        }
+    </script>
+</body>
+</html>
