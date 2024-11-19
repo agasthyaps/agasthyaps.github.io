@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #292929;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+         /* Static container */
+         .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* TOC styles */
+        .toc {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 100vh;
+            padding: 40px 10px;
+            border-right: 1px solid #eee;
+            overflow: hidden;
+            background: white;
+            transition: width 0.3s ease, padding 0.3s ease;
+            white-space: nowrap;
+            z-index: 100;
+        }
+
+        .toc:hover {
+            width: 200px;
+            padding: 40px 20px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .toc:hover ul {
+            opacity: 1;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .toc li::before {
+            content: "•";
+            display: inline-block;
+            width: 20px;
+            color: #666;
+        }
+
+        .toc li.active::before {
+            color: #000;
+        }
+
+        .toc a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .toc:hover a {
+            opacity: 1;
+        }
+
+        .toc a:hover {
+            color: #000;
+            background: #f5f5f5;
+        }
+
+        .toc a.active {
+            color: #000;
+            background: #f0f0f0;
+            font-weight: 500;
+        }
+
+        .toc .toc-h2 {
+            padding-left: 16px;
+            font-size: 13px;
+        }
+
+        h1, h2 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 2em;
+            margin-bottom: 0.7em;
+        }
+
+        h1 {
+            font-size: 2.2em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        p {
+            margin-bottom: 1.5em;
+        }
+
+        a {
+            color: #2962ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+
+        .author {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 2em;
+        }
+        .comment-highlight {
+            background-color: #cdf0e4;
+            cursor: pointer;
+            border-bottom: 2px solid #6c837b;
+            position: relative;
+            display: inline-block;
+            padding: 0 2px;
+        }
+
+        .comment-box {
+            position: fixed;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 14px;
+            max-width: 260px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .comment-box.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        h1, h2 {
+            scroll-margin-top: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .toc {
+                display: none;
+            }
+            .container {
+                margin-left: auto;
+            }
+        }
+               /* New styles for indented sections */
+        .indented-section {
+            margin-left: 2rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid #eee;
+        }
+
+        /* Optional: slightly muted heading for indented sections */
+        .indented-section h2 {
+            color: #444;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <nav class="toc">
+        <ul>
+            <li><a href="#what">What</a></li>
+            <li><a href="#why">Why</a></li>
+            <li><a href="#how">How</a>
+                <ul>
+                    <li class="toc-h2"><a href="#cast-human-fingerprints">Cast Human Fingerprints</a></li>
+                    <li class="toc-h2"><a href="#complete-the-circuit">Complete the Circuit</a></li>
+                    <li class="toc-h2"><a href="#find-the-right-path">Find the Right Path</a></li>
+                </ul>
+            </li>
+            <li><a href="#now-what">Now What?</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>about</h1>
+        
+        <p>Reflections on the what, why, how, and what's next for the essay <a href="http://essay.actually-useful.xyz"><strong>Sentient AI Is Closer Than You Think. We're Not Ready.</strong></a></p>
+        <p><strong>tldr;</strong> it's a glimpse at a new way to interact with ideas and you should <a href="mailto:agasthya.shenoy@teachinglabstudio.com" target="_blank">email me</a> if you want to be a part of the next iteration.</p>
+
+        <h1 id="what">what</h1>
+        <p>"<a href="http://essay.actually-useful.xyz"><strong>Sentient AI…</strong></a>" is more than an essay about my thoughts on the future of human-AI interactions. It's an experiment in human-ai interaction <span class="comment-highlight" data-comment="But also, it *is* an essay that took about 5 months (from idea to essay to code), many conversations, and countless dog walks."><em>itself</em></span>.</p>
+        
+        <p>Too often, we pin user satisfaction on the quality of what an AI produces: was the image realistic? did the email sound professional enough?</p>
+        
+        <p>I wanted the essay instead to be a glimpse into what the future could look like if we prioritize <em>human experience</em> rather than <em>AI output</em>.</p>
+
+        <h1 id="why">why</h1>
+        <p>Today's AI <em>software</em> <em>systems</em> constrain the utility of the AI <em>models</em> that power them. It's why we see <a href="https://danmeyer.substack.com/"><strong>dramatically less uptake on AI tools for school than the zeitgeist would have you expect</strong></a>. These tools limit the potential richness of human-AI interaction because they impose a set of hidden requirements for every user, every time they log in. Specifically, users often need to fulfill <em>at least two</em> of the following requirements:</p>
+        
+        <ul>
+            <li>the user needs to <strong>know what they need</strong> (eg, "a memo")</li>
+            <li>the user needs to <strong>know how to get it</strong> (eg, the right prompt and context)</li>
+            <li>the user needs to <strong>have the time to perfect it</strong> (eg, continually refining output in chat)</li>
+        </ul>
+
+        <p>Think about the last time you had a frustrating experience with a chatbot—it was likely because you couldn't satisfy at least two of the above points.</p>
+        
+        <p>Systems are designed this way because designers consider the final output to be the "table stakes". But in this new age of unimaginably flexible computing, we have the ability to focus on <em>experience</em>. I mean this in a deeper sense than the common understanding of UI/UX: I'm not talking about delighting users with confetti, as fun as that may be. We now have the capacity to rethink entire ways of <em>doing</em>, because we no longer need to be constrained by the conventions of the "static" technology of the past three decades of computing.</p>
+
+        <h1 id="how">how</h1>
+        <p>I've been thinking about this incessantly during my Fellowship with <a href="http://teachinglabstudio.com">Teaching Lab Studio</a>, and over the last six months, I've developed a set of design principles for creating rich AI-powered <span class="comment-highlight" data-comment="I'm using that word intentionally—not only is AI being jammed into every existing product, but our interactions with these models are qualitatively different than when we use something like Microsoft Word. It almost feels like interacting with something...sentient?"><em>encounters.</em></span></p>
+        
+        <p>These principles are my attempt at solving the issues mentioned above and shifting the paradigm from <em>output</em> to <em>experience</em>.</p>
+
+        <div class="indented-section">
+            <h2 id="cast-human-fingerprints">Cast Human Fingerprints</h2>
+            <p>Growing up, I loved everything <a href="https://en.wikipedia.org/wiki/Aardman_Animations">Aardman Animations</a> created. <a href="https://www.youtube.com/watch?v=-F4OVFUiM7k">Creature Comforts</a> and <a href="https://www.youtube.com/watch?v=jrmZIgVoQw4">Wallace and Gromit</a> were charming claymation films, but what made them truly magical to me was the fact that you could see the animators' fingerprints press and bump and jump across the moving clay figures. You knew that <em>someone</em> was <em>responsible</em> for this magi<em>c</em>. Experiences are more compelling, more "sticky", when we feel that another human had a part in their conception, creation, or execution: it's why people flock to the Louvre to see the same smile they've seen on countless coffee mugs. It's what NFTs tried to capitalize on (and ironically, the reason they failed). When designing AI experiences, we should also <strong>cast human fingerprints: intentionally show users the marks of humanity that molded the encounter.</strong></p>
+            
+            <p>With the essay, I tried to commit to this principle by—well, writing the essay myself. But the AI clone also has access to unreleased drafts, notes, inchoate ideas that are swimming around somewhere in my Notion account. The result is that the user gets to really feel like they are interacting with a deeply thought out idea <em>and</em> <span class="comment-highlight" data-comment="but it's not really me(!) that's right: this is me trying to use imputed humanity to my advantage.">can interrogate the progenitor of that idea</span>.</p>
+        </div>
+        <div class="indented-section">
+            <h2 id="complete-the-circuit">Complete the Circuit</h2>
+            <p>Retrieval Augmented Generation, or RAG, is the process of allowing a large language model (LLM) to access a large database of information, and use information relevant to the user's query to generate a response: a little bit like an open-book test. But a RAG-powered chatbot is just as inert as a regular chatbot. It has access to deep knowledge, but only uses that knowledge when the user asks (in a specific way!). Instead, when designing AI experiences, we should <strong>complete the circuit: use the information available to the LLM and <em>proactively do something with it</em>.</strong></p>
+            
+            <p>With the essay, I tried to commit to this principle by "prepping" my AI clone with the data I mentioned above <em>and</em> by giving it example answers to questions I thought users might have. Paired with an essay written to elicit questions, this results in an experience that poses a provocative idea, <em>anticipates both that the user will respond and the response itself</em>, and then answers the response in the way I might.</p>
+        </div>
+        <div class="indented-section">
+            <h2 id="find-the-right-path">Find the Right Path</h2>
+            <p>The concept of "desire paths" is common in human-centered design. It refers to the phenomenon where pedestrians often veer off paved walkways to cut through a lawn to get to their destination. When thousands of people do this, they wear a "desire path" into the dirt, a representation of what pedestrians "actually want". The design lesson is to figure out a user's desire path, and make a product they "actually want". This lesson makes sense, but it is a product of constraints. If I'm about to miss the bus, I might cut through the lawn to get to the bus stop faster. But if I'm on a walk on a sunny day listening to my favorite podcast, I might actually choose an <em>even longer</em> route to the bus stop. The <em>desire path</em> is dependent on my constraints (catching the bus on time, a non-direct sidewalk). But without those constraints, my path is different yet again. I call these constraint-free routes <em>inspire paths.</em></p> 
+            <p>Inspire paths are the routes that we choose to take because we enjoy the path itself. It's why some people still choose to make physical art when digital tools are readily available, why you might read a book instead of watching the movie version, why most people try to learn chess instead of using a chessbot to cheat against online players. Whether someone chooses a <em>desire</em> or <em>inspire</em> path is dependent on the constraints that person is under. We should make both available. When designing AI experiences, we should <strong>find the right path: figure out whether users need constraint-imposed efficiency, or if they want to engage more deeply in a process—or the option for both.</strong></p>
+            
+            <p>With the essay, I tried to commit to this principle by allowing for multiple ways to engage: maybe you want to just read the essay. Maybe you want to listen to it like a regular podcast. Maybe you have the time and space to interact with it. Maybe that changes from moment to moment. All paths are available to you at any moment.</p>
+        </div>
+        
+        <h1 id="now-what">Now What?</h1>
+        <p>I think there's something to this—and if you've read all the way down to here, you might agree. I'm not sure I've quite nailed it, but I designed the process to be replicable (scalable?), and I want to engage with more writers who'd like to take a stab at sharing their ideas in this way to continue experimenting. I think a version of this in the opinion section of the New York Times or The Atlantic would engage readers in a new way (and, if anyone who works there is reading this right now, <strong><a href="mailto:agasthya.shenoy@teachinglabstudio.com" target="_blank">email me</strong></a>. <span class="comment-highlight" data-comment="And any writers who want to take a stab at this with me!">Seriously!</span>)</p>
+        
+        <p>The promise of AI has been conflated with the promise of productivity. But to me, the real promise of AI is that we will be able to more deeply engage with each other, with ideas, and with the process of creation. We can do that—I can see that future clearly—but only if we commit. Commit to shifting paradigms, commit to deep engagement, commit to human experience. I hope, now, that you can see that future a little more clearly too.</p>
+    </div>
+
+    <script>
+        // Comment system script (unchanged)
+        const commentBox = document.createElement('div');
+        commentBox.className = 'comment-box';
+        document.body.appendChild(commentBox);
+
+        document.querySelectorAll('.comment-highlight').forEach(highlight => {
+            const showComment = (e) => {
+                const rect = highlight.getBoundingClientRect();
+                const comment = highlight.getAttribute('data-comment');
+                
+                commentBox.textContent = comment;
+                commentBox.style.top = `${rect.top}px`;
+                commentBox.style.left = `${rect.right + 20}px`;
+                commentBox.classList.add('visible');
+
+                const box = commentBox.getBoundingClientRect();
+                if (box.right > window.innerWidth) {
+                    commentBox.style.left = `${rect.left - box.width - 20}px`;
+                }
+            };
+
+            const hideComment = () => {
+                commentBox.classList.remove('visible');
+            };
+
+            highlight.addEventListener('mouseenter', showComment);
+            highlight.addEventListener('mouseleave', hideComment);
+            highlight.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                showComment(e);
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.comment-highlight')) {
+                commentBox.classList.remove('visible');
+            }
+        });
+
+        // TOC active state handling
+        const headings = document.querySelectorAll('h1, h2');
+        const tocLinks = document.querySelectorAll('.toc a');
+
+        const setActiveLink = () => {
+            let activeHeading = null;
+            
+            headings.forEach(heading => {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 100) {
+                    activeHeading = heading;
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (activeHeading && link.getAttribute('href') === '#' + activeHeading.id) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', setActiveLink);
+        setActiveLink();
+    </script>
+</body>
+</html>
