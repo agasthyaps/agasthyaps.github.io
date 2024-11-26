@@ -102,6 +102,21 @@
             margin-bottom: 2rem;
             font-weight: 800;
         }
+        /* make a #main.ideas class "ideanumber" w monospace h2 styling */
+        #main.ideas #ideanumber {
+            font-family: monospace;
+            font-size: 6vw;
+            color: #484848;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        #main.ideas div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
+        }
+        
         #main.ideas h2 {
             font-size: 6vw;
             margin-bottom: 1rem;
@@ -202,11 +217,11 @@
                     <p>i don't know what's <strong><i>actually</i> useful</strong>. but here are some ideas:</p>
                     <div>
                         <div>
-                            <h2>11.2024 is there a better way to engage with complex texts?</h2>
+                            <h2><span class="ideanumber">02.</span> is there a better way to engage with complex texts?</h2>
                             <p><i>maybe if you could listen to the author explain their ideas in their own voice?</i><a href="https://essay.actually-useful.xyz" target="_blank" style="color: rgb(142, 142, 142);"> Find out. →</a></p>
                         </div>
                         <div>
-                            <h2>09.2024 could an ai-generated podcast help you synthesize ideas?</h2>
+                            <h2><span class="ideanumber">01.</span> could an ai-generated podcast help you synthesize ideas?</h2>
                             <p><i>maybe if you used a team of LLMs with specialized roles to research, write, and edit it? </i><a href="https://connective-issues.io" target="_blank" style="color: rgb(142, 142, 142);"> Find out. →</a></p>
                         </div>
                     </div>
